@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Renewable Energy – Tejas, Louie, Tama, Arav</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #141a33;
+      --accent: #35c47c;
+      --accent-soft: #35c47c22;
+      --text: #f5f7ff;
+      --muted: #a9b0d5;
+      --danger: #ff6b6b;
+      --warning: #f7b733;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1b2340 0, #050814 55%, #000000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      padding: 3rem 1.5rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.6rem;
+      letter-spacing: 0.04em;
+    }
+    header p {
+      margin: 0.75rem auto 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    main {
+      max-width: 960px;
+      margin: 0 auto 3rem;
+      padding: 0 1.5rem 2rem;
+    }
+    section {
+      background: linear-gradient(135deg, var(--card), #101528);
+      border-radius: 18px;
+      padding: 1.75rem 1.75rem 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #262d4f;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    }
+    section h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    h3 {
+      margin-top: 1.2rem;
+      font-size: 1.1rem;
+      color: #e1e5ff;
+    }
+    p {
+      margin: 0.4rem 0 0.6rem;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.6rem 0 0.2rem;
+    }
+    .pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid var(--accent-soft);
+      color: var(--muted);
+      background: #0c1224;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.8rem;
+    }
+    .stat-card {
+      border-radius: 14px;
+      padding: 0.9rem 0.9rem 0.8rem;
+      background: #101528;
+      border: 1px solid #262d4f;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .stat-value {
+      margin-top: 0.25rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .stat-note {
+      margin-top: 0.25rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    ul {
+      margin: 0.4rem 0 0.6rem 1.2rem;
+      padding-left: 0.2rem;
+    }
+    li {
+      margin-bottom: 0.25rem;
+    }
+    .impact-badge {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+      background: #1b243f;
+      color: var(--danger);
+      border: 1px solid #ff6b6b55;
+    }
+    .quote {
+      margin-top: 0.9rem;
+      padding: 0.8rem 1rem;
+      border-left: 3px solid var(--accent);
+      background: #101528;
+      border-radius: 10px;
+      font-style: italic;
+      color: #e6ebff;
+    }
+    .names {
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .names span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 1.5rem;
+    }
+    .warning-text {
+      color: var(--warning);
+      font-weight: 500;
+    }
+    @media (max-width: 640px) {
+      header {
+        padding-top: 2.2rem;
+      }
+      header h1 {
+        font-size: 2.1rem;
+      }
+      section {
+        padding: 1.4rem 1.3rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Renewable Energy and Fossil Fuels</h1>
+    <p>
+      An exploration of solar, wind, hydro and geothermal energy, their benefits, downsides,
+      and the impacts of fossil fuels on climate and ecosystems.
+    </p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Overview of Renewable Energy</h2>
+      <p>
+        There are four main types of renewable energy: <strong>solar</strong>, <strong>wind</strong>,
+        <strong>hydro</strong>, and <strong>geothermal</strong>. These four types rely on light,
+        kinetic energy and heat.
+      </p>
+
+      <div class="pill-row">
+        <span class="pill">Solar – light</span>
+        <span class="pill">Wind – kinetic energy</span>
+        <span class="pill">Hydro – kinetic energy</span>
+        <span class="pill">Geothermal – heat</span>
+      </div>
+
+      <p>
+        Out of the four sources, <strong>hydropower is the most efficient</strong>, converting
+        <strong>90% of kinetic energy</strong> into usable power.
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Global energy from renewables</div>
+          <div class="stat-value">40%</div>
+          <div class="stat-note">
+            This shows how effective renewable energy can be at maintaining a clean and sustainable environment.
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Solar share</div>
+          <div class="stat-value">5%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Wind share</div>
+          <div class="stat-value">10%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Hydro share</div>
+          <div class="stat-value">17%</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Fossil Fuels and Climate Change</h2>
+      <p>
+        The most commonly used sources of energy are <strong>fossil fuels</strong>, which burn
+        carbon-based materials, boosting greenhouse gas emissions and climate change.
+      </p>
+
+      <span class="impact-badge">Environmental impact</span>
+      <p>
+        Using fossil fuels is bad for the environment because the mining and drilling for coal
+        destroy landscapes and ecosystems, endangering animals. Also, burning coal releases
+        carbon dioxide which gets trapped in the atmosphere, creating a heat blanket around the earth.
+      </p>
+
+      <p>
+        Fossil fuels are the main contributor to climate change. Burning them releases greenhouse gases,
+        primarily carbon dioxide, which trap heat in the atmosphere. This rising global temperature
+        melts polar ice caps and increases sea levels. Additionally, the smoke emissions fill the air
+        with harmful air pollutants and soot, which degrade air quality and further accelerate warming.
+      </p>
+    </section>
+
+    <section>
+      <h2>Global Coal Use and Geopolitical Effects</h2>
+      <p>
+        The use of fossil fuels impacts many parts of the world but the most affected zone is
+        <strong>Asia</strong>. This area consumes <strong>60% of the world's coal</strong>, with
+        countries including South Korea and Japan who heavily rely on imported coal.
+      </p>
+
+      <p>
+        <strong>20% of the world's coal</strong> comes through the Strait of Hormuz which is currently
+        closed due to the recent conflict between Iran and the USA. This forced countries to delay
+        shutdown of coal fired plants and max the input on coal fired plants.
+      </p>
+    </section>
+
+    <section>
+      <h2>Government Action and Australian Goals</h2>
+      <p>
+        It is our responsibility to adopt renewable energy sources and the government can help this
+        process by lowering the prices of solar panels and providing rebates for grid generation, to
+        people who install solar panels on their home or business.
+      </p>
+
+      <p>
+        The <strong>Australian Government</strong> has a goal for renewable energy – to reduce
+        greenhouse gas emissions by <strong>42% by 2030</strong>. They plan to do this by converting
+        things such as transportation and large scale buildings to more energy efficient electrical
+        models. This will also improve energy performance.
+      </p>
+
+      <p>
+        In addition to this, adding more renewable implants across the country can generate new jobs,
+        such as maintenance and installation, which can help stabilise economic structures. This will
+        help the government adopt independence and save money for future funding.
+      </p>
+    </section>
+
+    <section>
+      <h2>Downsides of Mass Renewable Deployment</h2>
+      <p>
+        Renewable energy still comes with downsides if mass produced.
+      </p>
+
+      <h3>Solar</h3>
+      <ul>
+        <li>Solar panels affect desert biomes by clearing land and disturbing desert water balance.</li>
+      </ul>
+
+      <h3>Wind</h3>
+      <ul>
+        <li>Using wind turbines in forests can clear land and block migration paths.</li>
+      </ul>
+
+      <h3>Hydropower</h3>
+      <ul>
+        <li>Using hydropower with dams can affect natural water flow and block migration paths.</li>
+      </ul>
+
+      <h3>Geothermal</h3>
+      <ul>
+        <li>
+          In rare circumstances, geothermal energy can lead to acid rain by releasing hydrogen atoms
+          into a moist atmosphere.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Alternatives and Everyday Actions</h2>
+      <p>
+        There are many alternatives to fossil fuels: <strong>solar</strong>, <strong>wind</strong>,
+        <strong>geothermal</strong> and <strong>hydro-electric</strong>. These are called renewable energy.
+      </p>
+
+      <p>
+        Renewable energy is energy harvested from natural sources that can constantly be replenished
+        within a human lifespan. Using these could deeply help climate change.
+      </p>
+
+      <p class="warning-text">
+        If you cannot afford these solutions you could simply turn off lights when you are not using
+        them or turning off the heater when you are out of the house.
+      </p>
+
+      <div class="quote">
+        “The change starts with you”
+      </div>
+
+      <div class="names">
+        Prepared by:
+        <span>Tejas</span>, <span>Louie</span>, <span>Tama</span>, <span>Arav</span>
+      </div>
+    </section>
+
+    <div class="footer-note">
+      All content on this page is derived solely from the original renewable energy text provided.
+    </div>
+  </main>
+</body>
+</html>
