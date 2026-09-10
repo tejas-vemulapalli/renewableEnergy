@@ -2,35 +2,75 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Renewable Energy – Interactive Page</title>
+<title>Renewable Energy – Interactive Infographic</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Google Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <style>
   body {
     margin: 0;
     font-family: "Segoe UI", sans-serif;
-    background: linear-gradient(135deg, #0a0f24, #1b2340);
+    background: #0b0f1a;
     color: #f5f7ff;
     overflow-x: hidden;
   }
 
-  header {
+  /* HERO SECTION */
+  .hero {
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 5rem 1rem;
+    background: linear-gradient(135deg, #1b2340, #0b0f1a);
     animation: fadeIn 1.5s ease;
   }
-
-  header h1 {
-    font-size: 2.8rem;
+  .hero h1 {
+    font-size: 3rem;
     margin: 0;
   }
-
-  header p {
+  .hero p {
     max-width: 700px;
-    margin: 1rem auto 0;
+    margin: 1rem auto;
     color: #b8c0e0;
+    font-size: 1.1rem;
   }
 
+  /* INFOGRAPHIC GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    padding: 1.8rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    animation: slideUp 1.2s ease;
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-8px);
+  }
+  .card .material-icons {
+    font-size: 48px;
+    color: #35c47c;
+    margin-bottom: 0.5rem;
+  }
+  .card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.3rem;
+  }
+  .card p {
+    color: #c7cbe0;
+  }
+
+  /* SECTION */
   section {
     max-width: 900px;
     margin: 2rem auto;
@@ -38,29 +78,16 @@
     padding: 2rem;
     border-radius: 16px;
     border: 1px solid rgba(255,255,255,0.1);
-    animation: slideUp 1.2s ease;
+    animation: fadeIn 1.5s ease;
   }
-
-  h2 {
+  section h2 {
     color: #35c47c;
     margin-top: 0;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
-  /* Fade-in animation */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Slide-up animation */
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Slideshow container */
+  /* SLIDESHOW */
   .slideshow {
     position: relative;
     max-width: 900px;
@@ -69,18 +96,13 @@
     overflow: hidden;
     animation: fadeIn 1.5s ease;
   }
-
   .slide {
     display: none;
-    width: 100%;
   }
-
   .slide img {
     width: 100%;
     display: block;
   }
-
-  /* Slideshow buttons */
   .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -94,40 +116,72 @@
     border-radius: 50%;
     user-select: none;
   }
-
   .prev { left: 10px; }
   .next { right: 10px; }
 
-  .names {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #b8c0e0;
+  /* ANIMATIONS */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  .names span {
-    color: #35c47c;
-    font-weight: bold;
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: #b8c0e0;
   }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Renewable Energy & Climate Impact</h1>
-  <p>An interactive overview of solar, wind, hydro, and geothermal energy — and the effects of fossil fuels.</p>
-</header>
+<div class="hero">
+  <h1>Renewable Energy Interactive Infographic</h1>
+  <p>A modern, animated, interactive overview of solar, wind, hydro, and geothermal energy — and the impacts of fossil fuels.</p>
+</div>
 
-<!-- Slideshow -->
+<!-- INFOGRAPHIC GRID -->
+<div class="grid">
+  <div class="card">
+    <span class="material-icons">wb_sunny</span>
+    <h3>Solar Energy</h3>
+    <p>Uses sunlight to generate power. Part of the 40% global renewable mix.</p>
+  </div>
+
+  <div class="card">
+    <span class="material-icons">air</span>
+    <h3>Wind Energy</h3>
+    <p>Uses kinetic energy from wind. Contributes 10% of global renewable energy.</p>
+  </div>
+
+  <div class="card">
+    <span class="material-icons">water</span>
+    <h3>Hydropower</h3>
+    <p>The most efficient renewable source, converting 90% of kinetic energy.</p>
+  </div>
+
+  <div class="card">
+    <span class="material-icons">terrain</span>
+    <h3>Geothermal</h3>
+    <p>Uses heat from the Earth. Rarely can cause acid rain in moist air.</p>
+  </div>
+</div>
+
+<!-- SLIDESHOW -->
 <div class="slideshow">
   <div class="slide">
-    <img src="https://picsum.photos/900/400?random=1" alt="Renewable Energy">
+    <img src="https://picsum.photos/900/400?random=10" alt="Renewable Energy">
   </div>
   <div class="slide">
-    <img src="https://picsum.photos/900/400?random=2" alt="Solar Panels">
+    <img src="https://picsum.photos/900/400?random=11" alt="Solar Panels">
   </div>
   <div class="slide">
-    <img src="https://picsum.photos/900/400?random=3" alt="Wind Turbines">
+    <img src="https://picsum.photos/900/400?random=12" alt="Wind Turbines">
   </div>
 
   <span class="prev" onclick="plusSlides(-1)">❮</span>
@@ -138,63 +192,46 @@
 let slideIndex = 1;
 showSlides(slideIndex);
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+function plusSlides(n) { showSlides(slideIndex += n); }
 
 function showSlides(n) {
   let slides = document.getElementsByClassName("slide");
-  if (n > slides.length) { slideIndex = 1 }
-  if (n < 1) { slideIndex = slides.length }
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
+  if (n > slides.length) slideIndex = 1;
+  if (n < 1) slideIndex = slides.length;
+  for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
   slides[slideIndex - 1].style.display = "block";
 }
 </script>
 
 <section>
-  <h2>Overview of Renewable Energy</h2>
-  <p>There are four main types of renewable energy: solar, wind, hydro, and geothermal. These rely on light, kinetic energy, and heat.</p>
-  <p>Hydropower is the most efficient, converting 90% of kinetic energy into usable power.</p>
-  <p>40% of the world's energy comes from renewable sources: 5% solar, 10% wind, and 17% hydro.</p>
-</section>
-
-<section>
   <h2>Fossil Fuels & Climate Change</h2>
-  <p>Fossil fuels burn carbon-based materials, increasing greenhouse gases and accelerating climate change.</p>
-  <p>Mining and drilling destroy landscapes and ecosystems. Burning coal releases CO₂, creating a heat blanket around Earth.</p>
+  <p>Burning fossil fuels releases greenhouse gases, trapping heat and accelerating climate change. Mining destroys landscapes and ecosystems.</p>
   <p>Rising temperatures melt polar ice caps, raise sea levels, and worsen air pollution.</p>
 </section>
 
 <section>
   <h2>Global Coal Use</h2>
-  <p>Asia consumes 60% of the world's coal. Countries like South Korea and Japan rely heavily on imported coal.</p>
-  <p>20% of the world's coal passes through the Strait of Hormuz, currently closed due to conflict, forcing countries to delay shutdowns of coal-fired plants.</p>
+  <p>Asia consumes 60% of the world's coal. South Korea and Japan rely heavily on imports.</p>
+  <p>20% of global coal passes through the Strait of Hormuz, currently closed due to conflict.</p>
 </section>
 
 <section>
   <h2>Australian Government Goals</h2>
   <p>Australia aims to reduce greenhouse gas emissions by 42% by 2030.</p>
-  <p>They plan to convert transportation and large buildings to more energy-efficient electrical models.</p>
-  <p>Renewable expansion creates jobs in maintenance and installation, stabilizing economic structures.</p>
+  <p>Plans include converting transportation and large buildings to efficient electrical models.</p>
+  <p>Renewable expansion creates jobs in installation and maintenance.</p>
 </section>
 
 <section>
-  <h2>Downsides of Renewable Energy</h2>
-  <p>Solar panels can disturb desert biomes. Wind turbines can block migration paths. Hydropower dams affect water flow. Geothermal energy can rarely cause acid rain.</p>
-</section>
-
-<section>
-  <h2>Alternatives & Everyday Actions</h2>
-  <p>Renewable energy includes solar, wind, geothermal, and hydro-electric sources.</p>
-  <p>If you cannot afford renewable solutions, simple actions like turning off lights or heaters help reduce energy use.</p>
+  <h2>Everyday Actions</h2>
+  <p>If renewable solutions are unaffordable, simple actions like turning off lights or heaters help reduce energy use.</p>
   <p><em>“The change starts with you.”</em></p>
-
-  <div class="names">
-    Compiled by: <span>Tejas</span>, <span>Louie</span>, <span>Tama</span>, <span>Arav</span>
-  </div>
+  <p>Compiled by: Tejas, Louie, Tama, Arav</p>
 </section>
+
+<footer>
+  © Renewable Energy Project — Interactive Edition
+</footer>
 
 </body>
 </html>
