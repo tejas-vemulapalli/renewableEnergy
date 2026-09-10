@@ -5,9 +5,6 @@
 <title>Renewable Energy – Interactive Infographic</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Google Icons -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
 <style>
   body {
     margin: 0;
@@ -17,10 +14,10 @@
     overflow-x: hidden;
   }
 
-  /* HERO SECTION */
+  /* HERO */
   .hero {
     text-align: center;
-    padding: 5rem 1rem;
+    padding: 4rem 1rem;
     background: linear-gradient(135deg, #1b2340, #0b0f1a);
     animation: fadeIn 1.5s ease;
   }
@@ -33,41 +30,6 @@
     margin: 1rem auto;
     color: #b8c0e0;
     font-size: 1.1rem;
-  }
-
-  /* INFOGRAPHIC GRID */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-    max-width: 1100px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
-
-  .card {
-    background: rgba(255,255,255,0.06);
-    padding: 1.8rem;
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
-    animation: slideUp 1.2s ease;
-    transition: transform 0.3s ease;
-  }
-  .card:hover {
-    transform: translateY(-8px);
-  }
-  .card .material-icons {
-    font-size: 48px;
-    color: #35c47c;
-    margin-bottom: 0.5rem;
-  }
-  .card h3 {
-    margin: 0.5rem 0;
-    font-size: 1.3rem;
-  }
-  .card p {
-    color: #c7cbe0;
   }
 
   /* SECTION */
@@ -87,37 +49,40 @@
     letter-spacing: 0.05em;
   }
 
-  /* SLIDESHOW */
-  .slideshow {
-    position: relative;
-    max-width: 900px;
-    margin: 2rem auto;
-    border-radius: 12px;
-    overflow: hidden;
-    animation: fadeIn 1.5s ease;
+  /* INFOGRAPHIC GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
   }
-  .slide {
-    display: none;
+  .card {
+    background: rgba(255,255,255,0.06);
+    padding: 1.8rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    animation: slideUp 1.2s ease;
+    transition: transform 0.3s ease;
   }
-  .slide img {
+  .card:hover {
+    transform: translateY(-8px);
+  }
+  .card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.3rem;
+    color: #35c47c;
+  }
+  .card p {
+    color: #c7cbe0;
+  }
+
+  /* CHARTS */
+  .chart-container {
     width: 100%;
-    display: block;
+    height: 300px;
+    margin-top: 1rem;
   }
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    padding: 12px;
-    color: #fff;
-    font-weight: bold;
-    font-size: 22px;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.4);
-    border-radius: 50%;
-    user-select: none;
-  }
-  .prev { left: 10px; }
-  .next { right: 10px; }
 
   /* ANIMATIONS */
   @keyframes fadeIn {
@@ -129,109 +94,145 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* FOOTER */
   footer {
     text-align: center;
     padding: 2rem;
     color: #b8c0e0;
   }
 </style>
-</head>
 
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
 <body>
 
 <div class="hero">
   <h1>Renewable Energy Interactive Infographic</h1>
-  <p>A modern, animated, interactive overview of solar, wind, hydro, and geothermal energy — and the impacts of fossil fuels.</p>
+  <p>A modern, animated, interactive overview of renewable energy, global coal use, and Australia’s climate goals.</p>
 </div>
-
-<!-- INFOGRAPHIC GRID -->
-<div class="grid">
-  <div class="card">
-    <span class="material-icons">wb_sunny</span>
-    <h3>Solar Energy</h3>
-    <p>Uses sunlight to generate power. Part of the 40% global renewable mix.</p>
-  </div>
-
-  <div class="card">
-    <span class="material-icons">air</span>
-    <h3>Wind Energy</h3>
-    <p>Uses kinetic energy from wind. Contributes 10% of global renewable energy.</p>
-  </div>
-
-  <div class="card">
-    <span class="material-icons">water</span>
-    <h3>Hydropower</h3>
-    <p>The most efficient renewable source, converting 90% of kinetic energy.</p>
-  </div>
-
-  <div class="card">
-    <span class="material-icons">terrain</span>
-    <h3>Geothermal</h3>
-    <p>Uses heat from the Earth. Rarely can cause acid rain in moist air.</p>
-  </div>
-</div>
-
-<!-- SLIDESHOW -->
-<div class="slideshow">
-  <div class="slide">
-    <img src="https://picsum.photos/900/400?random=10" alt="Renewable Energy">
-  </div>
-  <div class="slide">
-    <img src="https://picsum.photos/900/400?random=11" alt="Solar Panels">
-  </div>
-  <div class="slide">
-    <img src="https://picsum.photos/900/400?random=12" alt="Wind Turbines">
-  </div>
-
-  <span class="prev" onclick="plusSlides(-1)">❮</span>
-  <span class="next" onclick="plusSlides(1)">❯</span>
-</div>
-
-<script>
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) { showSlides(slideIndex += n); }
-
-function showSlides(n) {
-  let slides = document.getElementsByClassName("slide");
-  if (n > slides.length) slideIndex = 1;
-  if (n < 1) slideIndex = slides.length;
-  for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
-  slides[slideIndex - 1].style.display = "block";
-}
-</script>
 
 <section>
-  <h2>Fossil Fuels & Climate Change</h2>
-  <p>Burning fossil fuels releases greenhouse gases, trapping heat and accelerating climate change. Mining destroys landscapes and ecosystems.</p>
-  <p>Rising temperatures melt polar ice caps, raise sea levels, and worsen air pollution.</p>
+  <h2>What is Renewable Energy?</h2>
+  <p>Renewable energy comes from natural sources that can be replenished within a human lifespan. These include solar, wind, hydro, and geothermal energy.</p>
+  <p>40% of the world’s energy comes from renewable sources: 5% solar, 10% wind, and 17% hydro.</p>
+</section>
+
+<section>
+  <h2>Why We Need Renewable Energy</h2>
+  <p>Fossil fuels burn carbon-based materials, releasing greenhouse gases that trap heat in the atmosphere. This accelerates climate change, melts polar ice caps, raises sea levels, and worsens air quality.</p>
+  <p>Mining and drilling for coal destroy landscapes and ecosystems, endangering wildlife.</p>
+</section>
+
+<section>
+  <h2>Types of Renewable Energy</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Solar</h3>
+      <p>Uses sunlight to generate power.</p>
+    </div>
+
+    <div class="card">
+      <h3>Wind</h3>
+      <p>Uses kinetic energy from wind.</p>
+    </div>
+
+    <div class="card">
+      <h3>Hydropower</h3>
+      <p>The most efficient renewable source, converting 90% of kinetic energy.</p>
+    </div>
+
+    <div class="card">
+      <h3>Geothermal</h3>
+      <p>Uses heat from the Earth. Rarely can cause acid rain in moist air.</p>
+    </div>
+  </div>
 </section>
 
 <section>
   <h2>Global Coal Use</h2>
-  <p>Asia consumes 60% of the world's coal. South Korea and Japan rely heavily on imports.</p>
-  <p>20% of global coal passes through the Strait of Hormuz, currently closed due to conflict.</p>
+  <p>Asia consumes 60% of the world’s coal. South Korea and Japan rely heavily on imported coal. 20% of global coal passes through the Strait of Hormuz, currently closed due to conflict.</p>
+
+  <div class="chart-container">
+    <canvas id="coalChart"></canvas>
+  </div>
 </section>
 
 <section>
   <h2>Australian Government Goals</h2>
-  <p>Australia aims to reduce greenhouse gas emissions by 42% by 2030.</p>
-  <p>Plans include converting transportation and large buildings to efficient electrical models.</p>
-  <p>Renewable expansion creates jobs in installation and maintenance.</p>
+  <p>Australia aims to reduce greenhouse gas emissions by 42% by 2030. Plans include converting transportation and large buildings to efficient electrical models and expanding renewable energy jobs.</p>
+
+  <div class="chart-container">
+    <canvas id="ausChart"></canvas>
+  </div>
 </section>
 
 <section>
-  <h2>Everyday Actions</h2>
-  <p>If renewable solutions are unaffordable, simple actions like turning off lights or heaters help reduce energy use.</p>
-  <p><em>“The change starts with you.”</em></p>
-  <p>Compiled by: Tejas, Louie, Tama, Arav</p>
+  <h2>How Natural Sources Become Usable Energy</h2>
+  <p>This simplified process shows how renewable sources are converted into usable electricity:</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>1. Capture</h3>
+      <p>Sunlight, wind, water flow, or geothermal heat is collected.</p>
+    </div>
+    <div class="card">
+      <h3>2. Conversion</h3>
+      <p>Solar panels, turbines, or heat exchangers convert natural energy into mechanical or electrical energy.</p>
+    </div>
+    <div class="card">
+      <h3>3. Transmission</h3>
+      <p>Electricity is sent through power lines to homes and businesses.</p>
+    </div>
+    <div class="card">
+      <h3>4. Use</h3>
+      <p>Energy powers appliances, lighting, heating, and industry.</p>
+    </div>
+  </div>
 </section>
 
 <footer>
-  © Renewable Energy Project — Interactive Edition
+  © Renewable Energy Project — Prepared by Tejas, Louie, Tama, Arav
 </footer>
+
+<script>
+/* GLOBAL COAL USE CHART */
+new Chart(document.getElementById("coalChart"), {
+  type: "bar",
+  data: {
+    labels: ["Asia", "Rest of World"],
+    datasets: [{
+      label: "Coal Consumption (%)",
+      data: [60, 40],
+      backgroundColor: ["#35c47c", "#1b2340"]
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: { y: { beginAtZero: true } }
+  }
+});
+
+/* AUSTRALIAN GOALS CHART */
+new Chart(document.getElementById("ausChart"), {
+  type: "line",
+  data: {
+    labels: ["2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"],
+    datasets: [{
+      label: "Emission Reduction Target (%)",
+      data: [5, 10, 15, 20, 25, 30, 35, 42],
+      borderColor: "#35c47c",
+      backgroundColor: "rgba(53,196,124,0.2)",
+      tension: 0.3
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: { y: { beginAtZero: true } }
+  }
+});
+</script>
 
 </body>
 </html>
