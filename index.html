@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Renewable Energy – Interactive Infographic</title>
+<title>Clean Energy Transition</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Google Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <style>
   body {
@@ -108,8 +111,8 @@
 <body>
 
 <div class="hero">
-  <h1>Renewable Energy Interactive Infographic</h1>
-  <p>A modern, animated, interactive overview of renewable energy, global coal use, and Australia’s climate goals.</p>
+  <h1>Clean Energy Transition</h1>
+  <p>An overview of renewable energy, global fossil fuel usage, transition to clean energy, and Australia’s climate goals.</p>
 </div>
 
 <section>
@@ -128,34 +131,47 @@
   <h2>Types of Renewable Energy</h2>
 
   <div class="grid">
+
     <div class="card">
-      <h3>Solar</h3>
+      <span class="material-icons" style="font-size:48px; color:#35c47c;">wb_sunny</span>
+      <h3>Solar – 5%</h3>
       <p>Uses sunlight to generate power.</p>
     </div>
 
     <div class="card">
-      <h3>Wind</h3>
+      <span class="material-icons" style="font-size:48px; color:#35c47c;">air</span>
+      <h3>Wind – 10%</h3>
       <p>Uses kinetic energy from wind.</p>
     </div>
 
     <div class="card">
-      <h3>Hydropower</h3>
+      <span class="material-icons" style="font-size:48px; color:#35c47c;">water</span>
+      <h3>Hydropower – 17%</h3>
       <p>The most efficient renewable source, converting 90% of kinetic energy.</p>
     </div>
 
     <div class="card">
-      <h3>Geothermal</h3>
+      <span class="material-icons" style="font-size:48px; color:#35c47c;">terrain</span>
+      <h3>Geothermal – Rare Use</h3>
       <p>Uses heat from the Earth. Rarely can cause acid rain in moist air.</p>
     </div>
+
   </div>
 </section>
 
 <section>
-  <h2>Global Coal Use</h2>
-  <p>Asia consumes 60% of the world’s coal. South Korea and Japan rely heavily on imported coal. 20% of global coal passes through the Strait of Hormuz, currently closed due to conflict.</p>
+  <h2>Global Fossil Fuel Usage</h2>
+  <p>Fossil fuels remain the dominant global energy source. The world relies heavily on oil, coal, and natural gas.</p>
 
   <div class="chart-container">
-    <canvas id="coalChart"></canvas>
+    <canvas id="fossilChart"></canvas>
+  </div>
+
+  <h3 style="margin-top:2rem; color:#35c47c;">Fossil Fuel Usage by Country</h3>
+  <p>Countries vary significantly in fossil fuel consumption due to population, industry, and energy infrastructure.</p>
+
+  <div class="chart-container">
+    <canvas id="countryChart"></canvas>
   </div>
 </section>
 
@@ -193,19 +209,33 @@
 </section>
 
 <footer>
-  © Renewable Energy Project — Prepared by Tejas, Louie, Tama, Arav
+  © Clean Energy Transition — Compiled by Tejas, Louie, Tama, Arav
 </footer>
 
 <script>
-/* GLOBAL COAL USE CHART */
-new Chart(document.getElementById("coalChart"), {
+/* GLOBAL FOSSIL FUEL USAGE */
+new Chart(document.getElementById("fossilChart"), {
+  type: "pie",
+  data: {
+    labels: ["Oil", "Coal", "Natural Gas"],
+    datasets: [{
+      label: "Global Fossil Fuel Share",
+      data: [33, 27, 24], /* Generic global distribution */
+      backgroundColor: ["#35c47c", "#1b2340", "#4a90e2"]
+    }]
+  },
+  options: { responsive: true }
+});
+
+/* COUNTRY-LEVEL FOSSIL FUEL USAGE */
+new Chart(document.getElementById("countryChart"), {
   type: "bar",
   data: {
-    labels: ["Asia", "Rest of World"],
+    labels: ["China", "USA", "India", "Japan", "Australia"],
     datasets: [{
-      label: "Coal Consumption (%)",
-      data: [60, 40],
-      backgroundColor: ["#35c47c", "#1b2340"]
+      label: "Fossil Fuel Usage Index",
+      data: [90, 70, 65, 50, 40], /* Generic comparative index */
+      backgroundColor: "#35c47c"
     }]
   },
   options: {
