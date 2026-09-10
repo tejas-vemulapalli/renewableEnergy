@@ -219,15 +219,34 @@
 new Chart(document.getElementById("fossilChart"), {
   type: "pie",
   data: {
-    labels: ["Oil", "Coal", "Natural Gas", "Other Fossil Fuels"],
+    labels: ["Oil (31%)", "Coal (27%)", "Natural Gas (23%)", "Other Fossil Fuels (19%)"],
     datasets: [{
       label: "Global Fossil Fuel Share",
-      data: [31, 27, 23, 19], /* Generic global distribution */
-      backgroundColor: ["#35c47c", "#1b2340", "#4a90e2"]
+      data: [31, 27, 23, 19],
+      backgroundColor: [
+        "#FFB74D", // Oil - Amber
+        "#E57373", // Coal - Soft Red
+        "#64B5F6", // Natural Gas - Light Blue
+        "#A1887F"  // Other Fossil Fuels - Taupe
+      ],
+      borderColor: "#0b0f1a",
+      borderWidth: 2
     }]
   },
-  options: { responsive: true }
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          color: "#f5f7ff",
+          font: { size: 14 }
+        }
+      }
+    }
+  }
 });
+
 
 /* COUNTRY-LEVEL FOSSIL FUEL USAGE */
 new Chart(document.getElementById("countryChart"), {
